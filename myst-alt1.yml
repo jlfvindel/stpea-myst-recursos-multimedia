@@ -1,0 +1,46 @@
+# -------------------------------------------------------------
+#  myst-alt1.yml · Proyecto 2, edición para imprimir
+#  Se usa con:  myst --config myst-alt1.yml start
+#  PDF:         myst --config myst-alt1.yml build --typst   (o --pdf)
+#
+#  Diferencias con myst.yml:
+#    - otro título
+#    - sin las páginas que solo tienen sentido en pantalla:
+#      vídeos, iframes y el recorrido con vistas emergentes
+#    - declara las exportaciones a PDF
+# -------------------------------------------------------------
+version: 1
+
+project:
+  title: 'Proyecto 2: edición para imprimir'
+  authors:
+    - name: José Luis Fernández Vindel
+  license: CC-BY-4.0
+
+  downloads:
+    - file: descargas/recursos-multimedia.zip
+      title: Fuente del proyecto (zip)
+
+  math:
+    '\vo': 'v_{0}'
+    '\dd': '\,\mathrm{d}'
+
+  toc:
+    - file: index.md
+    - file: imagenes/imagenes.md
+    - file: matematicas/ecuaciones.md
+    - file: codigo/codigo.md
+    - file: diagramas/diagramas.md
+
+  exports:
+    - id: pdf-typst
+      format: typst
+      template: plain_typst_book
+      output: exports/proyecto-2-typst.pdf
+    - id: pdf-latex
+      format: pdf
+      template: plain_latex_book
+      output: exports/proyecto-2-latex.pdf
+
+site:
+  template: book-theme
